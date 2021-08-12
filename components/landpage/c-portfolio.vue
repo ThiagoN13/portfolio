@@ -9,22 +9,20 @@
       </div>
 
       <section id="works" class="container">
-        <div class="row portfolio-items">
-          <div class="portfolio-item col-sm-6 col-md-4 col-lg-3 apps" v-for="(repo, $index) in repositorios" :key="$index">
-            <div class="item-inner">
-              <img src="/img/github-background.jpg" alt />
-              <h5>{{ repo.name }}</h5>
-              <div class="layer">
-                <a
-                  class="preview view"
-                  :href="repo.svn_url"
-                  target="_blank"
-                >
-                  <div class="eye"></div>
-                </a>
+        <div class="portfolio-items">
+          <c-carousel :data="repositorios" v-slot="repo">
+            <div class="portfolio-item apps" @click="openInNewTab(repo.repo.svn_url)">
+              <div class="item-inner">
+                <span>{{ repo.repo.name }}</span>
+                <img src="/img/github-background.jpg" alt />
+                <div class="layer">
+                  <div class="preview view">
+                    <div class="eye"></div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </c-carousel>
           <!--/.portfolio-item-->
         </div>
       </section>
@@ -35,8 +33,13 @@
 
 <script>
 import axios from 'axios'
+import cCarousel from '../utils/c-carousel'
 
 export default {
+  components: {
+    cCarousel
+  },
+
   created () {
     this.getProjetos()
   },
@@ -48,6 +51,10 @@ export default {
   },
 
   methods: {
+    openInNewTab (url) {
+      window.open(url, '_blank').focus();
+    },
+
     async getProjetos () {
       const { data = [] } = await axios.get('/api/repositorios')
 
@@ -57,10 +64,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 /* Portfolio Section
 ==============================*/
-.view {
+#portfolio .view {
   border-radius: 0;
   padding: 12px 18px;
   text-transform: uppercase;
@@ -74,49 +81,45 @@ export default {
   transition: all 0.5s;
   color: #fff;
 }
-.view:hover {
-  background: #de5e60;
-  color: #fff;
-  border: 1px solid #de5e60;
-}
 
-.portfolio-items,
+#portfolio .portfolio-items,
 .portfolio-filter {
   list-style: none;
   padding: 0;
   margin: 0 -20px 20px 0;
   color: #fff;
 }
-.portfolio-filter > li {
+
+#portfolio .portfolio-filter > li {
   display: inline-block;
 }
-.portfolio-filter .btn-default {
+
+#portfolio .portfolio-filter .btn-default {
   color: #fff;
   background-color: #26292e;
   border-color: #26292e;
 }
-.portfolio-filter .active {
-  color: #fff;
-  background-color: #de5e60;
-  border-color: #de5e60;
-}
 
-.portfolio-item {
+#portfolio .portfolio-item {
+  cursor: pointer;
   padding: 0;
   margin: 0;
 }
-.portfolio-item .item-inner {
+
+#portfolio .portfolio-item .item-inner {
   background: #26292e;
-  padding: 5px 5px 0;
-  margin: 0 10px 10px 0;
+  padding: 15px;
+  margin: 0 0 10px 0;
   position: relative;
 }
-.portfolio-item img {
+
+#portfolio .portfolio-item img {
   width: 100%;
 }
-.portfolio-item h5 {
-  background-color: #26292e;
+
+#portfolio .portfolio-item span {
   margin: 0;
+  display: block;
   padding: 10px 0;
   font-weight: 700;
   font-size: 14px;
@@ -125,7 +128,8 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.portfolio-item .layer {
+
+#portfolio .portfolio-item .layer {
   position: absolute;
   top: 0;
   left: 0;
@@ -137,16 +141,23 @@ export default {
   vertical-align: middle;
   transition: opacity 300ms;
 }
-.portfolio-item .layer .preview {
+
+#portfolio .portfolio-item .layer:hover div {
+  background: #de5e60;
+  color: #fff;
+}
+
+#portfolio .portfolio-item .layer .preview {
   position: relative;
-  top: 35%;
+  top: 40%;
   display: inline-block;
 }
-.portfolio-item:hover .layer {
+
+#portfolio .portfolio-item:hover .layer {
   opacity: 1;
 }
 
-.eye {
+#portfolio .eye {
   width: 13px;
   height: 13px;
   border: solid 1px #FFFF;
@@ -154,7 +165,8 @@ export default {
   position: relative;
   transform: rotate(45deg);
 }
-.eye:before {
+
+#portfolio .eye:before {
   content: '';
   display: block;
   position: absolute;

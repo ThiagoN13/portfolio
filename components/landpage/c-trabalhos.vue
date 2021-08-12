@@ -9,11 +9,14 @@
       </div>
 
       <div class="row text-center">
-        <div class="col-6">
+        <div class="col-4">
           <img src="/img/tag.png" class="job-image tag">
         </div>
-        <div class="col-6">
+        <div class="col-4">
           <img src="/img/montreal.png" class="job-image montreal">
+        </div>
+        <div class="col-4">
+          <img src="/img/cubos.svg" class="job-image cubos">
         </div>
       </div>
     </div>
@@ -31,13 +34,18 @@ export default {
   margin-bottom: 40px;
 }
 
-#trabalhos .job-image {
-  width: 160px;
-  height: 80px;
+#trabalhos .job-image.tag {
+  width: 130px;
+  height: 100px;
 }
 
-#trabalhos .job-image.tag {
-  width: 160px;
-  height: 100px;
+#trabalhos .job-image.montreal {
+  width: 130px;
+  height: 70px;
+}
+
+#trabalhos .job-image.cubos {
+  width: 110px;
+  height: 70px;
 }
 </style>

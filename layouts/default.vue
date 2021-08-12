@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import cNavbar from '../components/c-navbar'
-import cFooter from '../components/c-footer'
+import cNavbar from '../components/landpage/c-navbar'
+import cFooter from '../components/landpage/c-footer'
 
 export default {
   components: {

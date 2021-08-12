@@ -2,7 +2,7 @@
   <div id="home" class="text-center">
     <div class="layer">
       <div class="content">
-        <h1>
+        <h1 class="title">
           Eu sou
           <strong>
             <span>Thiago Nogueira</span>
@@ -43,7 +43,21 @@ export default {
   background: rgba(7, 2, 4, 0.77);
 }
 
+#home .layer .title {
+  animation-name: up;
+  position: relative;
+  animation-duration: 3s;
+}
+
 #home p.lead {
   color: #fff;
+  animation-name: up;
+  position: relative;
+  animation-duration: 5s;
+}
+
+@keyframes up {
+  0%   {left:0px; top:200px;}
+  100% {left:0; top:0px;}
 }
 </style>

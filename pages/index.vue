@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import cHome from '../components/c-home'
-import cContato from '../components/c-contato'
-import cPortfolio from '../components/c-portfolio'
-import cSobre from '../components/c-sobre'
-import cTrabalhos from '../components/c-trabalhos'
+import cHome from '../components/landpage/c-home'
+import cContato from '../components/landpage/c-contato'
+import cPortfolio from '../components/landpage/c-portfolio'
+import cSobre from '../components/landpage/c-sobre'
+import cTrabalhos from '../components/landpage/c-trabalhos'
 
 export default {
   components: {
@@ -28,7 +28,7 @@ export default {
     cSobre,
     cHome,
     cTrabalhos
-  },
+  }
 }
 </script>
 
