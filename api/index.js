@@ -1,6 +1,6 @@
 const express = require('express')
 const axios = require('axios')
-const env = require('./env/index.json')
+const env = require('./env')
 
 const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
@@ -9,7 +9,7 @@ const app = express()
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
- 
+
 // parse application/json
 app.use(bodyParser.json())
 
