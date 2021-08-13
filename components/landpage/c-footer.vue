@@ -43,7 +43,7 @@
           <div class="col-sm-6">
             <p class="text-md-right text-center">
               Developed by
-              <a href="https://github.com/thiagoN13">Thiago Nogueira</a>
+              <a target="_blank" href="https://github.com/thiagoN13">Thiago Nogueira</a>
             </p>
           </div>
         </div>
