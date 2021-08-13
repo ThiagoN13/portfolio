@@ -143,7 +143,7 @@ export default {
 }
 
 #portfolio .portfolio-item .layer:hover div {
-  background: #de5e60;
+  background: #EB5F22;
   color: #fff;
 }
 

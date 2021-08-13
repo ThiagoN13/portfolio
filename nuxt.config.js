@@ -1,7 +1,7 @@
 export default {
   server: {
-    host: '0.0.0.0',
-    port: process.env.PORT || 3000
+    // host: '0.0.0.0',
+    // port: process.env.PORT || 3000
   },
   /*
   ** Nuxt rendering mode
@@ -18,7 +18,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Thiago Nogueira',
     htmlAttrs: {
       lang: 'pt-br'
     },

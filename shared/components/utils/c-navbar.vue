@@ -1,7 +1,8 @@
 <template>
-  <nav id="art-menu" class="navbar navbar-expand-md fixed-top">
+  <nav id="art-menu" class="navbar navbar-expand-md" :class="{ 'other-page': !isHome, 'fixed-top': isHome }">
     <div class="container">
-      <a class="navbar-brand" href="#">Thiago N.</a>
+      <img src="/img/logo.png" class="c-logo" alt="">
+      <a class="navbar-brand" href="/#">Thiago N.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span>
@@ -25,8 +26,11 @@
             <a class="nav-link" href="#portfolio">Github</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contato">Contato</a>
-          </li>         
+            <a class="nav-link" href="#contact">Contato</a>
+          </li>
+          <!-- <li class="nav-item">
+            <NuxtLink to="/blog" class="nav-link">Blog</NuxtLink>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -40,29 +44,45 @@ export default {
   mounted () {
     this.onScroll()
 
-    this.onClick()
+    this.registerScroll()
+  },
+
+  computed: {
+    isHome () {
+      return this.$route.path === '/'
+    }
   },
 
   methods: {
     onScroll () {
-      const elemento = $('.navbar')
+      const element = $('.navbar')
 
       window.addEventListener('scroll', event => {
         if (window.scrollY <= 100) {
-          return elemento.css('background', 'none')
+          return element.css('background', 'none')
         }
-
-        elemento.css('background', 'rgba(0, 0, 0, 0.8)')
+        const isHome = window.location.pathname === '/'
+        if (isHome) {
+          element.css('background', 'rgba(0, 0, 0, 0.8)')
+        }
       })
     },
 
-    onClick () {
+    registerScroll () {
+      const router = this.$router
+
       $('.nav-item a[href^="#"]').on('click', function(e) {
         e.preventDefault()
         const id = $(this).attr('href')
+        const isHome = window.location.pathname === '/'
+
+        if (!isHome) {
+          return router.replace(`/${id}`)
+        }
+
         const targetOffset = $(id).offset().top
-            
-        $('html, body').animate({ 
+
+        $('html, body').animate({
           scrollTop: targetOffset - 100
         }, 500)
 
@@ -78,15 +98,21 @@ export default {
   text-align: center;
 }
 
+.navbar .c-logo {
+  height: 20px;
+  width: 17px;
+  margin-right: 10px;
+}
+
 .navbar-brand {
   text-align: center;
   font-size: 25px;
   font-family: 'Roboto', sans-serif;
-  color: white;  
+  color: white;
 }
 
 .navbar-toggler {
-  border: none;  
+  border: none;
   outline: none;
 }
 
@@ -106,6 +132,7 @@ export default {
 
 .hamburger {
   fill: #fff;
+  background-color: #2f3238;
 }
 
 #art-menu {
@@ -126,13 +153,13 @@ export default {
 }
 
 #art-menu a.navbar-brand:hover {
-  color: #de5e60;
+  color: #EB5F22;
 }
 
 #art-menu a.nav-link:hover {
   font-weight: 500;
-  color: #de5e60;
-  border-bottom: 1px solid #de5e60;
+  color: #EB5F22;
+  border-bottom: 1px solid #EB5F22;
 }
 
 #art-menu.navbar-default .navbar-nav > li > a {
@@ -144,7 +171,7 @@ export default {
 
 .navbar-nav .nav-item .nav-link{
   margin-bottom: -1px;
-  border: none;  
+  border: none;
   outline: none;
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -152,17 +179,29 @@ export default {
   cursor: pointer;
 }
 
+#art-menu.other-page a {
+  color: #7b7b88
+}
+
+#art-menu.other-page {
+  background-color: rgba(0, 0, 0, 0.8)
+}
+
 /* desktop */
 @media (min-width: 992px) {
+  #art-menu.other-page {
+    background-color: unset;
+  }
+
   .brand .navbar-brand {
     font-size: 32px;
-    border: none;  
+    border: none;
     outline: none;
     color: #fff;
   }
 
-  .navbar-nav .nav-item .nav-link{  
-    color: white;    
+  .navbar-nav .nav-item .nav-link{
+    color: white;
   }
   .nav-link {
     margin-left: 30px;
@@ -173,7 +212,7 @@ export default {
     content: '';
     display: block;
     height: 2px;
-    width: 0;    
+    width: 0;
     transition: width .3s;
   }
 
@@ -181,5 +220,5 @@ export default {
     width: 50%;
     transition: width .3s;
   }
-} 
+}
 </style>

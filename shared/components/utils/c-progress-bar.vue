@@ -24,6 +24,6 @@ export default {};
 }
 
 .bg-site {
-  background-color: #de5e60;
+  background-color: #EB5F22;
 }
 </style>

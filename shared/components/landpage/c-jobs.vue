@@ -9,17 +9,17 @@
       </div>
 
       <div class="row text-center">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4 mb-md-0">
           <a target="_blank" href="https://tag.mx">
             <img src="/img/tag.png" class="job-image tag">
           </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4 mb-md-0">
           <a target="_blank" href="https://www.montreal.com.br/">
             <img src="/img/montreal.png" class="job-image montreal">
           </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4 mb-md-0">
           <a target="_blank" href="https://cubos.io/">
             <img src="/img/cubos.svg" class="job-image cubos">
           </a>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="row text-center mt-4">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-4 mb-4 mb-md-0 offset-md-4">
           <a target="_blank" href="https://aarin.com.br/">
             <img src="/img/aarin.png" class="job-image aarin">
           </a>

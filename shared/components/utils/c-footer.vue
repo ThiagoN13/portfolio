@@ -64,6 +64,7 @@ export default {};
   color: #fff;
   background: #26292e;
 }
+
 .footer-top {
   position: relative;
   padding: 30px 0;
@@ -93,11 +94,18 @@ export default {};
   margin: 0;
   display: inline-block;
 }
+
 .footer-logo a {
   color: #ffffff;
   font-weight: 700;
   font-size: 16px;
 }
+
+#footer .social-icons ul li a:hover {
+  border-radius: 50%;
+  border: 1px solid #EB5F22;
+}
+
 #footer .social-icons ul li a {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
@@ -108,6 +116,7 @@ export default {};
   float: left;
   margin-right: 8px;
 }
+
 .social-icons ul li a {
   color: #fff;
   background-color: #d9d9d9;
@@ -120,7 +129,7 @@ export default {};
 }
 .social-icons .icon-sm:hover {
   border-radius: 10px;
-  background-color: #de5e60;
+  background-color: #EB5F22;
 }
 .icon-lg {
   font-size: 48px;

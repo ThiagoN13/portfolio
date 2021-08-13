@@ -1,83 +1,41 @@
 <template>
-  <div class>
+  <div class="landpage">
 
     <c-home></c-home>
 
-    <c-sobre></c-sobre>
+    <c-about></c-about>
 
-    <c-trabalhos></c-trabalhos>
+    <c-jobs></c-jobs>
 
     <c-portfolio></c-portfolio>
 
-    <c-contato></c-contato>
+    <c-contact class="pb-5"></c-contact>
 
   </div>
 </template>
 
 <script>
-import cHome from '../components/landpage/c-home'
-import cContato from '../components/landpage/c-contato'
-import cPortfolio from '../components/landpage/c-portfolio'
-import cSobre from '../components/landpage/c-sobre'
-import cTrabalhos from '../components/landpage/c-trabalhos'
+import cHome from '../shared/components/landpage/c-home'
+import cContact from '../shared/components/landpage/c-contact'
+import cPortfolio from '../shared/components/landpage/c-portfolio'
+import cAbout from '../shared/components/landpage/c-about'
+import cJobs from '../shared/components/landpage/c-jobs'
 
 export default {
   components: {
-    cContato,
+    cContact,
     cPortfolio,
-    cSobre,
+    cAbout,
     cHome,
-    cTrabalhos
+    cJobs
   }
 }
 </script>
 
 <style>
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400);
-body,
-html {
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-rendering: optimizeLegibility !important;
-  color: #fff;
-  overflow-x: hidden;
+.landpage {
   background: #2f3238;
-}
-h1 {
-  text-transform: none;
-}
-h1 strong {
-  font-weight: 800;
-}
-h2 {
-  text-transform: none;
-  line-height: 20px;
-  margin: 0;
   color: #fff;
-}
-h3 {
-  font-size: 18px;
-  font-weight: 900;
-}
-h4 {
-  text-transform: none;
-}
-h5 {
-  text-transform: none;
-  font-weight: 700;
-  line-height: 20px;
-}
-a {
-  color: #de5e60;
-}
-a:hover,
-a:focus {
-  text-decoration: none;
-  color: #de5e60;
-}
-ul,
-ol {
-  padding: 0;
 }
 
 .section-title.center {
@@ -89,7 +47,7 @@ ol {
 }
 
 .section-title.center .line {
-  border-top: 4px solid #de5e60;
+  border-top: 4px solid #EB5F22;
   height: 10px;
   width: 80px;
   text-align: center;
@@ -120,7 +78,7 @@ ol {
 }
 
 #art-menu a.navbar-brand:hover {
-  color: #de5e60;
+  color: #EB5F22;
 }
 
 #art-menu.navbar-default .navbar-nav > li > a {
@@ -133,7 +91,7 @@ ol {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #de5e60 !important;
+  color: #EB5F22 !important;
   background-color: transparent;
   font-weight: 700;
 }
@@ -144,8 +102,8 @@ ol {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #de5e60;
-  border-color: #de5e60;
+  background-color: #EB5F22;
+  border-color: #EB5F22;
 }
 
 .navbar-default .navbar-toggle:hover > .icon-bar {

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import cNavbar from '../components/landpage/c-navbar'
-import cFooter from '../components/landpage/c-footer'
+import cNavbar from '../shared/components/utils/c-navbar'
+import cFooter from '../shared/components/utils/c-footer'
 
 export default {
   components: {
@@ -19,5 +19,5 @@ export default {
 </script>
 
 <style>
-
+  @import url('../static/css/style.css');
 </style>
