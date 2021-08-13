@@ -58,7 +58,8 @@ export default {
   ],
 
   gtm: {
-    id: 'GTM-KMB22HR'
+    id: 'GTM-KMB22HR',
+    enabled: true
   },
 
   /*
