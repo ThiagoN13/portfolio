@@ -53,8 +53,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/gtm'
   ],
+
+  gtm: {
+    id: 'GTM-KMB22HR'
+  },
 
   /*
   ** Global CSS

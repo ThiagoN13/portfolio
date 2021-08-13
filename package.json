@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/pwa": "^3.0.2",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
