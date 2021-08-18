@@ -53,8 +53,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/gtm'
+    '@nuxtjs/gtm',
+    '@nuxtjs/axios'
   ],
 
   gtm: {

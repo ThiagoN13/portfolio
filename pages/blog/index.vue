@@ -1,59 +1,27 @@
 <template>
-  <div class="page">
-    <c-menu class="mb-5"></c-menu>
-
-    <div class="container pb-5">
-      <div class="row mb-3 mb-md-5">
-        <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-          <c-card id="12" type="main" ></c-card>
-        </div>
-
-        <div class="col-12 col-lg-6">
-          <div class="row">
-            <div class="col-12 mb-3">
-              <c-card id="12" type="horizontal"></c-card>
-            </div>
-
-            <div class="col-12 mb-3">
-              <c-card id="12" type="horizontal"></c-card>
-            </div>
-
-            <div class="col-12 mb-3">
-              <c-card id="12" type="horizontal"></c-card>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mb-5">
-        <div class="col-12 col-xl-3 col-lg-4 col-md-6 mb-3">
-          <c-card id="12" type="vertical"></c-card>
-        </div>
-
-        <div class="col-12 col-xl-3 col-lg-4 col-md-6 mb-3">
-          <c-card id="12" type="vertical"></c-card>
-        </div>
-
-        <div class="col-12 col-xl-3 col-lg-4 col-md-6 mb-3">
-          <c-card id="12" type="vertical"></c-card>
-        </div>
-
-        <div class="col-12 col-xl-3 col-lg-4 col-md-6 mb-3">
-          <c-card id="12" type="vertical"></c-card>
-        </div>
-      </div>
-    </div>
-  </div>
+  <c-blog :posts="posts" :categories="categories" />
 </template>
 
 <script>
-import cMenu from '../../shared/components/blog/c-menu'
-import cCard from '../../shared/components/blog/c-card'
+import cBlog from '../../shared/components/blog/c-blog'
 
 export default {
+  async asyncData({ $axios }) {
+    const posts = await $axios.$get('/api/posts')
+    const categories = await $axios.$get('/api/categorias')
+
+    return { posts, categories }
+  },
+
   components: {
-    cMenu,
-    cCard
+    cBlog
+  },
+
+  data () {
+    return {
+      posts: [],
+      categories: [],
+    }
   }
 }
 </script>

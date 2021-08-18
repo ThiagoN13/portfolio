@@ -1,10 +1,10 @@
 <template>
   <div class="page-article">
-    <c-menu class="mb-5"></c-menu>
+    <c-menu class="mb-5" :categories="categories"></c-menu>
 
     <div class="container">
       <p class="text-center c-date">
-        {{ post.date }}
+        {{ formatDate(post.published_at) }}
       </p>
 
       <h1 class="text-center my-4">
@@ -21,8 +21,8 @@
 
       <div class="row align-items-center mb-4">
         <div class="col">
-          <span class="c-author">{{ post.author.name }}</span>
-          <span class="c-profession">{{ post.author.profession }}</span>
+          <span class="c-author">{{ (post.author || {}).name }}</span>
+          <span class="c-profession">{{ (post.author || {}).profession }}</span>
         </div>
 
         <div class="col text-right">
@@ -38,19 +38,8 @@
 
       <div class="row">
         <div class="col-12">
-          <p>
-            Before we get started, you might be wondering why you should deploy your Apostrophe website using Docker. Docker allows developers to deploy applications while keeping each part of the application separate. In this guide, we're going to create one custom Docker image for our app but use five other images as well:
+          <p v-html="post.content">
 
-            Apostrophe - Our custom Apostrophe website image
-            Mongo - Database for our Apostrophe app
-            Portainer - GUI for managing Docker
-            Nginx Proxy Manager - Manages NGINX and Let's Encrypt certificates
-            MariaDB - Database for Nginx Proxy Manager
-            Watchtower - Auto-updates images
-            Note: While advancements for Apostrophe 3 continue, this tutorial is focused specifically on deploying Apostrophe 2 on Docker. There are plans to document and share updates on this same topic for Apostrophe 3 in the future.
-
-            Setting up the Server
-            For this example, I'll be using a VPS on DigitalOcean running RancherOS with 2 CPUs and 2GB RAM. RancherOS a lightweight OS designed for hosting containers. If you'd prefer to use another distribution, you'll need to make sure Docker Engine is installed. Instructions for installing Docker Engine can be found in the Docker documentation. Any cloud provider will work just fine but I'd suggest the specs above as minimums.
           </p>
         </div>
       </div>
@@ -61,9 +50,9 @@
 
       <div class="row mb-5 text-center">
         <div class="col">
-          <button>Tweeter</button>
-          <button>Facebook</button>
-          <button>LinkedIn</button>
+          <button type="button" class="btn btn-light">Tweeter</button>
+          <button type="button" class="btn btn-light">Facebook</button>
+          <button type="button" class="btn btn-light">LinkedIn</button>
         </div>
       </div>
     </div>
@@ -74,22 +63,46 @@
 import cMenu from '../../../shared/components/blog/c-menu'
 
 export default {
+  async asyncData({ $axios, params }) {
+    const post = await $axios.$get(`/api/posts/${params.id}`)
+    const categories = await $axios.$get('/api/categorias')
+
+    return { post, categories }
+  },
+
+  head () {
+    return {
+      title: this.post.title,
+      meta: [
+        { name: 'description', content: this.post.description, hid: 'description' },
+        { name: 'author', content: this.post.author.name },
+        { name: 'copyright', content: 'Copyright © ' + new Date().getFullYear() + ' ' + this.post.author.name },
+        { name: 'robots', content: 'index, follow' }
+      ]
+    }
+  },
+
   components: {
     cMenu
   },
 
   data () {
     return {
+      categories: [],
       post: {
-        id: '',
-        title: 'Deploying Apostrophe on Docker',
-        description:  'In this tutorial, well deploy an Apostrophe 2 website with Portainer, Nginx Proxy Manager, and Watchtower for an easy-to-manage Docker experience.',
-        date: new Date().toLocaleDateString(),
-        author: {
-          name: 'John Doe',
-          profession: 'Developer'
-        }
+        author: {},
+        category: {}
       }
+    }
+  },
+
+  methods: {
+    formatDate (date) {
+      if (!date) {
+        return '-'
+      }
+
+      return new Date(date).toLocaleDateString()
     }
   }
 }

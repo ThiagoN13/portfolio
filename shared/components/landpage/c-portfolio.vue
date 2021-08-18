@@ -32,33 +32,22 @@
 </template>
 
 <script>
-import axios from 'axios'
 import cCarousel from '../utils/c-carousel'
 
 export default {
+  props: {
+    repositorios: {
+      type: Array
+    }
+  },
+
   components: {
     cCarousel
-  },
-
-  created () {
-    this.getProjetos()
-  },
-
-  data () {
-    return {
-      repositorios: []
-    }
   },
 
   methods: {
     openInNewTab (url) {
       window.open(url, '_blank').focus();
-    },
-
-    async getProjetos () {
-      const { data = [] } = await axios.get('/api/repositorios')
-
-      this.repositorios = data
     }
   }
 }

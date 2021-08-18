@@ -7,7 +7,7 @@
 
     <c-jobs></c-jobs>
 
-    <c-portfolio></c-portfolio>
+    <c-portfolio :repositorios="repositorios"></c-portfolio>
 
     <c-contact class="pb-5"></c-contact>
 
@@ -22,12 +22,23 @@ import cAbout from '../shared/components/landpage/c-about'
 import cJobs from '../shared/components/landpage/c-jobs'
 
 export default {
+  async asyncData({ $axios }) {
+    const repositorios = await $axios.$get('/api/repositorios')
+    return { repositorios }
+  },
+
   components: {
     cContact,
     cPortfolio,
     cAbout,
     cHome,
     cJobs
+  },
+
+  data () {
+    return {
+      repositorios: []
+    }
   }
 }
 </script>

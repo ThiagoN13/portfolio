@@ -1,18 +1,53 @@
 <template>
   <div class="menu-blog">
     <ul class="menu-list">
-      <li :class="{'active': active === 'artigos' }" @click="setActive('artigos')">Artigos</li>
-      <li :class="{'active': active === 'programacao' }" @click="setActive('programacao')">Programação</li>
-      <li :class="{'active': active === 'redes' }" @click="setActive('redes')">Redes</li>
+      <li
+        :class="{'active': active === category.slug }"
+        @click="setActive(category.slug)"
+        v-for="category in allCategories"
+        :key="category._id">
+        <a :href="category.slug ? `/blog/${category.slug}`: '/blog'">
+          {{ category.name }}
+        </a>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    categories: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+
+  computed: {
+    allCategories () {
+      return [{ name: 'Todos' }, ...this.categories]
+    }
+  },
+
   data () {
     return {
-      active: 'artigos'
+      active: ''
+    }
+  },
+
+  created () {
+    let category;
+
+    if (!this.$route.params.category) {
+      [ category ] = this.allCategories
+    } else {
+      category = this.categories.find(c => c.slug === this.$route.params.category)
+    }
+
+    if (category) {
+      this.setActive(category.slug)
     }
   },
 
@@ -43,7 +78,15 @@ export default {
   padding: 20px 0 20px 0;
 }
 
+.menu-blog .menu-list li a {
+  color: #7b7b88;
+}
+
 .menu-blog .menu-list li.active {
   border-bottom: 2px solid #EB5F22;
+}
+
+.menu-blog .menu-list li.active a {
+  color: #EB5F22;
 }
 </style>
