@@ -48,9 +48,24 @@
 
       <div class="row mb-5 text-center">
         <div class="col">
-          <button type="button" class="btn btn-light">Tweeter</button>
-          <button type="button" class="btn btn-light">Facebook</button>
-          <button type="button" class="btn btn-light">LinkedIn</button>
+          <a
+            :href="`https://twitter.com/share?url=${urlPath}`"
+            class="btn btn-light"
+            target="_blank">
+            Facebook
+          </a>
+          <a
+            :href="`https://www.facebook.com/sharer/sharer.php?u=${urlPath}`"
+            class="btn btn-light"
+            target="_blank">
+            Facebook
+          </a>
+          <a
+            :href="`https://www.linkedin.com/shareArticle?mini=true&url=${urlPath}`"
+            class="btn btn-light"
+            target="_blank">
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>
@@ -82,6 +97,12 @@ export default {
 
   components: {
     cMenu
+  },
+
+  computed: {
+    urlPath () {
+      return window.location.href
+    }
   },
 
   data () {
