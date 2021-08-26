@@ -4,25 +4,25 @@
 
     <div class="container">
       <p class="text-center c-date">
-        {{ formatDate(post.published_at) }}
+        {{ formatDate(post.fields.date) }}
       </p>
 
       <h1 class="text-center my-4">
-        {{ post.title }}
+        {{ post.fields.title }}
       </h1>
 
       <div class="row">
         <div class="col">
           <p class="c-description text-center mx-0 mx-md-5">
-            {{ post.description }}
+            {{ post.fields.description }}
           </p>
         </div>
       </div>
 
       <div class="row align-items-center mb-4">
         <div class="col">
-          <span class="c-author">{{ (post.author || {}).name }}</span>
-          <span class="c-profession">{{ (post.author || {}).profession }}</span>
+          <span class="c-author">{{ (post.fields.writer.fields || {}).name }}</span>
+          <span class="c-profession">{{ (post.fields.writer.fields || {}).profession }}</span>
         </div>
 
         <div class="col text-right">
@@ -32,15 +32,13 @@
 
       <div class="row mb-5">
         <div class="col">
-          <img class="c-banner" src="https://apostrophecms.com/uploads/attachments/ckm3jvpoj07ffu8oci3dta5a9-apos-docker-header.full.jpg" alt="">
+          <img class="c-banner" :src="post.fields.image.url" alt="">
         </div>
       </div>
 
       <div class="row">
         <div class="col-12">
-          <p v-html="post.content">
-
-          </p>
+          <div v-html="post.fields.content" />
         </div>
       </div>
 
@@ -74,9 +72,9 @@ export default {
     return {
       title: this.post.title,
       meta: [
-        { name: 'description', content: this.post.description, hid: 'description' },
-        { name: 'author', content: this.post.author.name },
-        { name: 'copyright', content: 'Copyright © ' + new Date().getFullYear() + ' ' + this.post.author.name },
+        { name: 'description', content: this.post.fields.description, hid: 'description' },
+        { name: 'author', content: this.post.fields.writer.name },
+        { name: 'copyright', content: 'Copyright © ' + new Date().getFullYear() + ' ' + this.post.fields.writer.name },
         { name: 'robots', content: 'index, follow' }
       ]
     }

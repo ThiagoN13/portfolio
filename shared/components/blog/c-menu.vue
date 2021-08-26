@@ -2,12 +2,12 @@
   <div class="menu-blog">
     <ul class="menu-list">
       <li
-        :class="{'active': active === category.slug }"
-        @click="setActive(category.slug)"
+        :class="{'active': active === category.fields.slug }"
+        @click="setActive(category.fields.slug)"
         v-for="category in allCategories"
-        :key="category._id">
-        <a :href="category.slug ? `/blog/${category.slug}`: '/blog'">
-          {{ category.name }}
+        :key="category.contentID">
+        <a :href="category.fields.slug ? `/blog/${category.fields.slug}`: '/blog'">
+          {{ category.fields.title }}
         </a>
       </li>
     </ul>
@@ -27,7 +27,7 @@ export default {
 
   computed: {
     allCategories () {
-      return [{ name: 'Todos' }, ...this.categories]
+      return [{ fields: { title: 'Todos' } }, ...this.categories]
     }
   },
 
@@ -43,11 +43,11 @@ export default {
     if (!this.$route.params.category) {
       [ category ] = this.allCategories
     } else {
-      category = this.categories.find(c => c.slug === this.$route.params.category)
+      category = this.categories.find(c => c.fields.slug === this.$route.params.category)
     }
 
     if (category) {
-      this.setActive(category.slug)
+      this.setActive(category.fields.slug)
     }
   },
 

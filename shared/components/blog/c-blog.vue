@@ -70,15 +70,15 @@ export default {
 
   computed: {
     mainPost () {
-      return this.posts.find(post => post.type === 'main')
+      return this.posts.find(post => post.fields.type === 'main')
     },
 
     verticalPosts () {
-      return this.posts.filter(post => post.type === 'vertical')
+      return this.posts.filter(post => post.fields.type === 'vertical')
     },
 
     horizontalPosts () {
-      return this.posts.filter(post => post.type === 'horizontal' || !post.type)
+      return this.posts.filter(post => post.fields.type === 'horizontal' || !post.fields.type)
     }
   }
 }
