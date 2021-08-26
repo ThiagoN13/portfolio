@@ -5,7 +5,7 @@
     <div class="footer-top">
       <div class="container text-center">
         <div class="footer-logo">
-          <a href="https://codepen.io/jvjijith/pen/woMywq">Feito com amor ❤ Thiago Nogueira</a>
+          <a href="https://www.thiagonogueira.xyz">Feito com amor ❤ Thiago Nogueira</a>
         </div>
         <div class="social-icons">
           <ul>
