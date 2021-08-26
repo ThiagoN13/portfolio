@@ -57,6 +57,10 @@ export default {
     '@nuxtjs/axios'
   ],
 
+  axios: {
+    baseURL: process.env.DOMAIN_URL || 'http:localhost:3000'
+  },
+
   gtm: {
     id: 'GTM-KMB22HR',
     enabled: true,
