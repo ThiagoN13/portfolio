@@ -18,25 +18,56 @@
           <input type="button" class="send_message transition" id="button" value="Enviar mensagem" @click="submit"/>
         </form>
       </div>
+
+      <c-alert
+        v-if="success"
+        type="success"
+        title="Sucesso!"
+        message="Sua mensagem foi enviada com sucesso, em breve estaremos entrando em contato!"
+        @close="clear" />
+
+      <c-alert
+        v-if="error"
+        type="danger"
+        title="Ocorreu um erro!"
+        message="Infelizmente ocorreu um erro ao entrar em contato conosco!"
+        @close="clear" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import CAlert from '../utils/c-alert'
 
 export default {
+  components: {
+    CAlert
+  },
+
   data () {
     return {
-      contact: {}
+      contact: {},
+      success: false,
+      error: false
     }
   },
 
   methods: {
     async submit () {
-      await axios.post('/api/contato', this.contact)
+      try {
+        await axios.post('/api/contato', this.contact)
+        this.success = true
 
-      this.contact = {}
+        this.contact = {}
+      } catch (error) {
+        this.error = true
+      }
+    },
+
+    clear () {
+      this.success = false
+      this.error = false
     }
   }
 };
