@@ -71,7 +71,11 @@ export default {
   /*
   ** Global CSS
   */
-  css: ['bootstrap/dist/css/bootstrap.min.css'],
+  css: [
+    'bootstrap/dist/css/bootstrap.min.css',
+    '@fortawesome/fontawesome-free/css/all.min.css'
+  ],
+
   plugins: [
     { src: '~plugins/bootstrap.js', mode: 'client' }
   ],

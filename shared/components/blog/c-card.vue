@@ -11,21 +11,28 @@
 
       <div class="col-md-6" :class="{ 'col-12 col-md-12': isMain || isVertical }">
         <div class="row">
-          <div class="col order-1" :class="{ 'col-6 order-1': isMain || isVertical, 'col-6 col-md-12': isVertical }">
+          <div class="col order-1" :class="{ 'col-6 order-1': isMain || isVertical, 'col-6 col-md-12': isVertical || isHorizontal }">
             <span class="c-category">{{ (post.fields.category.fields || {}).title }}</span>
             <span class="c-date">Publicado em: {{ formatDate(post.fields.date) }}</span>
           </div>
 
-          <div class="col-12 my-2" :class="{ 'order-3 order-md-3': isMain || isVertical, 'order-3 order-md-2 mb-4': isHorizontal }">
+          <div class="col-12 mt-2" :class="{ 'order-3 order-md-3': isMain || isVertical, 'order-3 order-md-2 mb-4': isHorizontal }">
             <a href="" class="c-title">
               {{ post.fields.title }}
             </a>
-            <p v-if="isMain" class="mt-2">{{ post.fields.description }}</p>
+            <p v-if="isMain" class="mt-2 c-description">{{ post.fields.description }}</p>
           </div>
 
-          <div class="col-6" :class="{ 'col-6 order-2 order-md-2 text-right': isMain, 'order-2 order-md-3 text-right text-md-left': isHorizontal || isVertical, 'col-6 col-md-12 text-right text-md-left': isVertical }">
-            <span class="c-author">{{ (post.fields.writer.fields || {}).name }}</span>
-            <span class="c-profession">{{ (post.fields.writer.fields || {}).profession }}</span>
+          <div class="col-6" :class="{ 'col-6 order-2 order-md-2 text-right': isMain, 'col-md-12 order-2 order-md-3 text-right text-md-left': isHorizontal || isVertical, 'col-6 col-md-12 text-right text-md-left': isVertical, 'col-info-autor': isHorizontal }">
+            <div class="row align-items-center">
+              <div class="col-auto" :class="{ 'order-2': isMain, 'order-2 order-md-1': isHorizontal || isVertical }">
+                <img class="c-avatar" :src="post.fields.writer.fields.avatar.url" alt="">
+              </div>
+              <div class="col p-0" :class="{ 'order-md-2 order-1': isHorizontal || isVertical }">
+                <span class="c-author">{{ (post.fields.writer.fields || {}).name }}</span>
+                <span class="c-profession">{{ (post.fields.writer.fields || {}).profession }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -110,17 +117,27 @@ export default {
   font-size: 22px;
 }
 
+.c-card .c-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 .c-card.main .c-title {
   font-size: 32px;
 }
 
 .c-card .c-author {
   display: block;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .c-card .c-profession {
   display: block;
+  font-size: 12px;
+}
+
+.c-card .c-description {
   font-size: 14px;
 }
 
@@ -130,6 +147,7 @@ export default {
   color: #7b7b88;
 }
 
+
 /* desktop */
 @media (min-width: 992px) {
   .c-card .c-image {
@@ -138,6 +156,11 @@ export default {
 
   .c-card.main .c-image {
     height: 530px;
+  }
+
+  .col-info-autor {
+    position: absolute;
+    bottom: 20px;
   }
 }
 </style>

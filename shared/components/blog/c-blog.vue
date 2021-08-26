@@ -17,7 +17,14 @@
         </div>
       </div>
 
-      <div class="row mb-5">
+      <div class="row" v-if="verticalPosts.length > 0">
+        <div class="col-12">
+          <h2>Veja mais</h2>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row mb-5" v-if="verticalPosts.length > 0">
         <div class="col-12 col-xl-3 col-lg-4 col-md-6 mb-3" v-for="post in verticalPosts" :key="post._id">
           <c-card type="vertical" :post="post"></c-card>
         </div>

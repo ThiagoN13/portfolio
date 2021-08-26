@@ -19,14 +19,39 @@
         </div>
       </div>
 
-      <div class="row align-items-center mb-4">
-        <div class="col">
-          <span class="c-author">{{ (post.fields.writer.fields || {}).name }}</span>
-          <span class="c-profession">{{ (post.fields.writer.fields || {}).profession }}</span>
+      <div class="row align-items-end mb-3">
+        <div class="col-12 col-md-6 my-2 my-md-0">
+          <div class="row text-center text-md-left">
+            <div class="col-12 col-md-auto">
+              <img class="c-avatar" :src="post.fields.writer.fields.avatar.url" alt="">
+            </div>
+            <div class="col col-md-8 pl-md-0">
+              <span class="c-author">{{ (post.fields.writer.fields || {}).name }}</span>
+              <span class="c-profession">{{ (post.fields.writer.fields || {}).profession }}</span>
+            </div>
+          </div>
         </div>
 
-        <div class="col text-right">
+        <div class="col-12 col-md-6 text-center text-md-right my-3 my-md-0">
           Compartilhar:
+          <a
+            :href="`https://twitter.com/share?url=${urlPath}`"
+            class="btn btn-link p-0 mx-1"
+            target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            :href="`https://www.facebook.com/sharer/sharer.php?u=${urlPath}`"
+            class="btn btn-link p-0 mx-1"
+            target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a
+            :href="`https://www.linkedin.com/shareArticle?mini=true&url=${urlPath}`"
+            class="btn btn-link p-0 mx-1"
+            target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
       </div>
 
@@ -36,9 +61,27 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-12">
           <div v-html="post.fields.content" />
+        </div>
+      </div>
+
+      <div class="card mx-0 mx-md-5">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img class="c-card-image" :src="post.fields.writer.fields.avatar.url" alt="">
+            </div>
+
+            <div class="col">
+              <h5 class="c-card-author">{{ post.fields.writer.fields.name }}</h5>
+              <span class="c-card-profession">{{ post.fields.writer.fields.profession }}</span>
+              <p class="c-date mb-0">
+                Publicado em: {{ formatDate(post.fields.date) }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -50,20 +93,23 @@
         <div class="col">
           <a
             :href="`https://twitter.com/share?url=${urlPath}`"
-            class="btn btn-light"
+            class="btn btn-link"
             target="_blank">
-            Facebook
+            <i class="fab fa-twitter"></i>
+            Twitter
           </a>
           <a
             :href="`https://www.facebook.com/sharer/sharer.php?u=${urlPath}`"
-            class="btn btn-light"
+            class="btn btn-link"
             target="_blank">
+            <i class="fab fa-facebook"></i>
             Facebook
           </a>
           <a
             :href="`https://www.linkedin.com/shareArticle?mini=true&url=${urlPath}`"
-            class="btn btn-light"
+            class="btn btn-link"
             target="_blank">
+            <i class="fab fa-linkedin"></i>
             LinkedIn
           </a>
         </div>
@@ -137,6 +183,17 @@ export default {
   font-size: 14px;
 }
 
+.c-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.c-description {
+  color: #7b7b88;
+}
+
 .c-profession {
   display: block;
   font-size: 14px;
@@ -151,6 +208,13 @@ export default {
   width: 100%;
   height: 460px;
   border-radius: 20px;
+}
+
+.c-card-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
 }
 
 @media (max-width: 603px) {

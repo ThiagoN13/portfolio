@@ -55,6 +55,7 @@ export default {
 .section-title h2,
 .section-title.center h2 {
   font-weight: 300;
+  margin: 0;
 }
 
 .section-title.center .line {
@@ -63,7 +64,7 @@ export default {
   width: 80px;
   text-align: center;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 15px;
   transition: .3s ease;
 }
 

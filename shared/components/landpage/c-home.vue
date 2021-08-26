@@ -10,7 +10,7 @@
         </h1>
 
         <p class="lead">Full stack Developer</p>
-        <a href="#about" class="fa fa-angle-down scroll-nav"></a>
+        <a href="#about" @click="onClick" class="fa fa-angle-down scroll-nav"></a>
       </div>
     </div>
   </div>
@@ -18,7 +18,17 @@
 
 <script>
 export default {
+  methods: {
+    onClick () {
+      const targetOffset = $('#sobre').offset().top
 
+      $('html, body').animate({
+        scrollTop: targetOffset - 100
+      }, 500)
+
+      $('.navbar-collapse').collapse('hide')
+    },
+  }
 }
 </script>
 
@@ -49,12 +59,24 @@ export default {
   animation-duration: 3s;
 }
 
+#home .layer .scroll-nav {
+  position: relative;
+  font-size: 28px;
+  animation: up 5s,fa-blink 1.5s linear infinite;
+}
+
 #home p.lead {
   color: #fff;
   animation-name: up;
   position: relative;
   animation-duration: 5s;
 }
+
+ @keyframes fa-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+ }
 
 @keyframes up {
   0%   {left:0px; top:200px;}

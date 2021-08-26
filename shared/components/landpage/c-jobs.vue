@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section-title center text-center">
         <h2>
-          <strong>Empresas</strong>
+          Empresas
         </h2>
         <div class="line"></div>
       </div>

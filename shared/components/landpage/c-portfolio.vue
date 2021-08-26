@@ -14,7 +14,8 @@
             <div class="portfolio-item apps" @click="openInNewTab(repo.repo.svn_url)">
               <div class="item-inner">
                 <span>{{ repo.repo.name }}</span>
-                <img src="/img/github-background.jpg" alt />
+                <!-- <img src="/img/github-background.jpg" alt /> -->
+                <i class="fab fa-github"></i>
                 <div class="layer">
                   <div class="preview view">
                     <div class="eye"></div>
@@ -97,20 +98,21 @@ export default {
 
 #portfolio .portfolio-item .item-inner {
   background: #26292e;
-  padding: 15px;
+  padding: 20px;
   margin: 0 0 10px 0;
   position: relative;
+  height: 150px;
 }
 
-#portfolio .portfolio-item img {
-  width: 100%;
+#portfolio .portfolio-item i {
+  font-size: 62px;
 }
 
 #portfolio .portfolio-item span {
   margin: 0;
   display: block;
   padding: 10px 0;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   color: #fff;
   white-space: nowrap;

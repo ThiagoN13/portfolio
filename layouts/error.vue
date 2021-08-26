@@ -9,8 +9,8 @@
             <p>{{ handleErrorMsg.message || 'Ocorreu um erro inesperado.' }}</p>
 
             <div class="d-flex justify-content-center">
-              <button type="button" class="btn btn-link my-5" @click="$router.replace('/blog')">
-              Voltar ao inicio
+              <button type="button" class="btn btn-link my-5" @click="$router.replace('/')">
+                Voltar ao inicio
               </button>
             </div>
           </div>

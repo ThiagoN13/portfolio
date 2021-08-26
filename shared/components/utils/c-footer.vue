@@ -11,22 +11,22 @@
           <ul>
             <li>
               <a class="envelope" target="_blank" href="https://github.com/ThiagoN13">
-                <img src="/img/github.png" alt="" class="w-100 h-100">
+                <i class="fab fa-github"></i>
               </a>
             </li>
             <li>
               <a class="twitter" target="_blank" href="https://www.linkedin.com/in/thiago-nogueira-152405163/">
-                <img src="/img/linkedin.svg" alt="" class="w-100 h-100">
+                <i class="fab fa-linkedin"></i>
               </a>
             </li>
             <li>
               <a class="dribbble" href="mailto:thiago.nogueira187@gmail.com">
-                <img src="/img/gmail.png" alt="" class="w-100 h-100">
+                <i class="fas fa-envelope-open-text"></i>
               </a>
             </li>
             <li>
               <a class="facebook" target="_blank" href="https://gitlab.com/thiago.nogueira187">
-                <img src="/img/gitlab.png" alt="" class="w-100 h-100">
+                <i class="fab fa-gitlab"></i>
               </a>
             </li>
           </ul>
@@ -75,10 +75,6 @@ export default {};
   padding: 20px 0 10px;
 }
 
-#footer .footer-bottom a:hover {
-  text-decoration: underline;
-}
-
 .footer-logo {
   display: inline-block;
   margin-bottom: 5px;
@@ -102,8 +98,8 @@ export default {};
 }
 
 #footer .social-icons ul li a:hover {
-  border-radius: 50%;
   border: 1px solid #EB5F22;
+  border-radius: 20%;
 }
 
 #footer .social-icons ul li a {
