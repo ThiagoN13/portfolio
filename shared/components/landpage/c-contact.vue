@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from '@nuxtjs/axios'
+import axios from 'axios'
 
 export default {
   data () {
@@ -34,7 +34,7 @@ export default {
 
   methods: {
     async submit () {
-      await axios.$post('/api/contato', this.contact)
+      await axios.post('/api/contato', this.contact)
 
       this.contact = {}
     }

@@ -58,16 +58,16 @@ export default {
 }
 
 .section-title.center .line {
-  border-top: 4px solid #EB5F22;
-  height: 10px;
+  background-color: #EB5F22;
+  height: 4px;
   width: 80px;
   text-align: center;
   margin: 0 auto;
   margin-top: 20px;
+  transition: .3s ease;
 }
 
-.section-title.center .line:hover {
-  transition: all 0.5s ease-in-out;
+.section-title:hover .line {
   width: 15%;
 }
 

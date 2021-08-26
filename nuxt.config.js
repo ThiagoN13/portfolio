@@ -60,6 +60,7 @@ export default {
   gtm: {
     id: 'GTM-KMB22HR',
     enabled: true,
+    debug: false,
     pageTracking: true
   },
 

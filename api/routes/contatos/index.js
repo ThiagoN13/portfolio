@@ -23,7 +23,7 @@ module.exports = function (app) {
 
       res.json(info)
     } catch (error) {
-      res.status(500).json({ message: erro.message })
+      res.status(500).json({ message: error.message })
     }
   })
 }

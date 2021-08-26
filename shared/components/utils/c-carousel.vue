@@ -84,7 +84,8 @@ export default {
 .button {
   outline: none;
   background-color: unset;
-  border: 1px solid rgb(43, 43, 43);
+  border: 1px solid #EB5F22;
+  color: #EB5F22;
   font-size: 18px;
 }
 
