@@ -101,7 +101,11 @@ export default {
 
   computed: {
     urlPath () {
-      return window.location.href
+      if (process.client) {
+        return window.location.href
+      }
+
+      return `${process.env.DOMAIN_URL}${this.$route.fullPath}`
     }
   },
 
