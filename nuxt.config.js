@@ -57,7 +57,8 @@ export default {
   modules: [
     '@nuxtjs/gtm',
     '@nuxtjs/axios',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
 
   axios: {
