@@ -69,7 +69,7 @@ export default {
     cacheTime: 1000 * 60 * 60 * 24,
     gzip: true,
     hostname: process.env.DOMAIN_URL,
-    async routes () {
+    routes: async () => {
       const { data = [] } = await axios.get(`${process.env.DOMAIN_URL}/api/posts`)
 
       return data.map(post => '/blog/article/' + post.fields.slug)
