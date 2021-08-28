@@ -66,6 +66,8 @@ export default {
   },
 
   sitemap: {
+    cacheTime: 1000 * 60 * 60 * 24,
+    gzip: true,
     hostname: process.env.DOMAIN_URL,
     async routes () {
       const { data = [] } = await axios.get(`${process.env.DOMAIN_URL}/api/posts`)
