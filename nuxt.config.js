@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   server: {
     // host: '0.0.0.0',
@@ -59,7 +61,16 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.DOMAIN_URL || 'http:localhost:3000'
+    baseURL: process.env.DOMAIN_URL
+  },
+
+  sitemap: {
+    hostname: process.env.DOMAIN_URL,
+    async routes () {
+      const { data = [] } = await axios.get(`${process.env.DOMAIN_URL}/api/posts`)
+
+      return data.map(post => '/blog/article/' + post.fields.slug)
+    }
   },
 
   gtm: {
