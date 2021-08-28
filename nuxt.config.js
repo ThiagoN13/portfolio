@@ -54,7 +54,8 @@ export default {
   */
   modules: [
     '@nuxtjs/gtm',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap'
   ],
 
   axios: {
@@ -62,10 +63,7 @@ export default {
   },
 
   gtm: {
-    id: 'GTM-KMB22HR',
-    enabled: true,
-    debug: false,
-    pageTracking: true
+    id: 'GTM-KMB22HR'
   },
 
   /*
