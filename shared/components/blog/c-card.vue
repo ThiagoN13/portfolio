@@ -99,6 +99,11 @@ export default {
   width: 100%;
   height: 280px;
   border-radius: 10px;
+  object-fit: cover;
+}
+
+.c-card.main .c-image {
+  object-fit: contain;
 }
 
 .c-card.main .c-image {
