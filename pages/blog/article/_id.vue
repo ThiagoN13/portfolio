@@ -121,7 +121,7 @@
 <script>
 import cMenu from '@/shared/components/blog/c-menu'
 import hljs from 'highlight.js';
-import 'highlight.js/styles/default.css';
+import 'highlight.js/styles/github.css';
 
 export default {
   async asyncData({ $axios, params, error }) {
@@ -187,6 +187,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.page-article code {
+  padding: 0 !important;
+}
+</style>
 
 <style scoped>
 .c-author {
