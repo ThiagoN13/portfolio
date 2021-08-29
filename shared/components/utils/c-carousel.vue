@@ -2,11 +2,11 @@
   <div class="carousel">
     <div class="row mb-2">
       <div class="col col-right">
-        <button class="button previous" @click="previousPage" :disabled="isInitialPage">
-          ⯇
+        <button class="btn btn-sm button" @click="previousPage" :disabled="isInitialPage">
+          <i class="fas fa-chevron-left"></i>
         </button>
-        <button class="button next" :disabled="isLastPage" @click="nextPage">
-          ⯈
+        <button class="btn btn-sm button" :disabled="isLastPage" @click="nextPage">
+          <i class="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>
@@ -86,7 +86,6 @@ export default {
   background-color: unset;
   border: 1px solid #EB5F22;
   color: #EB5F22;
-  font-size: 18px;
 }
 
 /* .button.next {

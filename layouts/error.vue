@@ -1,6 +1,6 @@
 <template>
-  <div id="error-page" class="container my-5">
-    <div class="row justify-content-center text-center">
+  <div id="error-page" class="container">
+    <div class="row justify-content-center text-center h-100 align-items-center">
       <div class="col-24 col-md-20 col-lg-14">
         <div class="error-banner">
           <div class="content">
@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#error-page {
+  height: calc(100vh - 83px - 216px);
+}
+</style>

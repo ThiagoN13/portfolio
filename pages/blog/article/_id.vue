@@ -119,12 +119,18 @@
 </template>
 
 <script>
-import cMenu from '../../../shared/components/blog/c-menu'
+import cMenu from '@/shared/components/blog/c-menu'
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
 
 export default {
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, error }) {
     const post = await $axios.$get(`/api/posts/${params.id}`)
     const categories = await $axios.$get('/api/categorias')
+
+    if (Object.keys(post).length === 0) {
+      return error({ statusCode: 404, message: 'Publicação não encontrada' })
+    }
 
     return { post, categories }
   },
@@ -143,6 +149,11 @@ export default {
 
   components: {
     cMenu
+  },
+
+  mounted () {
+    document.querySelectorAll('code')
+      .forEach(el => hljs.highlightBlock(el))
   },
 
   computed: {

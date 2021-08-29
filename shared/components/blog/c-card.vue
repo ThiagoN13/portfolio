@@ -118,9 +118,10 @@ export default {
 }
 
 .c-card .c-avatar {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
+  border: 1px solid #ccc;
 }
 
 .c-card.main .c-title {

@@ -25,7 +25,6 @@ module.exports = function (app) {
 
       res.json(item)
     } catch (erro) {
-      console.log(erro.response.data)
       res.status(erro.response.status).json({ message: erro.response.data })
     }
   })

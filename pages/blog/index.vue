@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import cBlog from '../../shared/components/blog/c-blog'
+import cBlog from '@/shared/components/blog/c-blog'
 
 export default {
   async asyncData({ $axios }) {

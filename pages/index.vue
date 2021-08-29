@@ -11,6 +11,9 @@
 
     <c-contact class="pb-5"></c-contact>
 
+    <button ref="btnUp" class="btn btn-dark btn-up d-none" @click="onScrollUp">
+      <i class="fas fa-chevron-up"></i>
+    </button>
   </div>
 </template>
 
@@ -39,6 +42,26 @@ export default {
     return {
       repositorios: []
     }
+  },
+
+  mounted () {
+    window.addEventListener('scroll', this.scroll)
+  },
+
+  methods: {
+    onScrollUp () {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+    },
+
+    scroll () {
+      if (!this.$refs.btnUp) return
+
+      if (window.scrollY < 100) {
+        this.$refs.btnUp.classList.add('d-none')
+      } else {
+        this.$refs.btnUp.classList.remove('d-none')
+      }
+    }
   }
 }
 </script>
@@ -47,6 +70,12 @@ export default {
 .landpage {
   background: #2f3238;
   color: #fff;
+}
+
+.landpage .btn-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 .section-title.center {
