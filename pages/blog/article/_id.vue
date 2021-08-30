@@ -190,7 +190,7 @@ export default {
 
 <style>
 .page-article code {
-  padding: 0 !important;
+  padding: 0 10px 0 10px !important;
 }
 </style>
 
