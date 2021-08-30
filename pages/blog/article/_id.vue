@@ -137,7 +137,7 @@ export default {
 
   head () {
     return {
-      title: this.post.title,
+      title: this.post.fields.title,
       meta: [
         { name: 'description', content: this.post.fields.description, hid: 'description' },
         { name: 'author', content: this.post.fields.writer.name },
