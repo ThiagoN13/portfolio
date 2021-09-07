@@ -1,7 +1,7 @@
 <template>
-  <div class="c-card" :class="[post.fields.type]" @click="onClick">
-    <div class="row">
-      <div class="col-md-6 mb-3" :class="{ 'col-12 col-md-12': isMain || isVertical }">
+  <div class="c-card card" :class="[type]" @click="onClick">
+    <div class="row card-body">
+      <div class="col-md-6 mb-3 mb-md-0" :class="{ 'col-12 col-md-12': isMain || isVertical }">
         <img
           class="c-image"
           :src="post.fields.image.url"
@@ -43,6 +43,10 @@
 <script>
 export default {
   props: {
+    type: {
+      type: String
+    },
+
     post: {
       type: Object,
       default () {
@@ -56,15 +60,15 @@ export default {
 
   computed: {
     isMain () {
-      return this.post.fields.type === 'main';
+      return this.type === 'main';
     },
 
     isVertical () {
-      return this.post.fields.type === 'vertical';
+      return this.type === 'vertical';
     },
 
     isHorizontal () {
-      return this.post.fields.type === 'horizontal';
+      return this.type === 'horizontal';
     }
   },
 
@@ -166,7 +170,7 @@ export default {
 
   .col-info-autor {
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
   }
 }
 </style>

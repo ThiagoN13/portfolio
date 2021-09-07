@@ -4,7 +4,7 @@
 
     <div class="container pb-5" v-if="posts.length > 0">
       <div class="row mb-3 mb-md-5">
-        <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+        <div class="col-12 col-lg-6 mb-5 mb-lg-0" v-if="mainPost">
           <c-card type="main" :post="mainPost" v-if="mainPost"></c-card>
         </div>
 
@@ -77,15 +77,19 @@ export default {
 
   computed: {
     mainPost () {
-      return this.posts.find(post => post.fields.type === 'main')
+      return this.posts[0]
     },
 
     verticalPosts () {
-      return this.posts.filter(post => post.fields.type === 'vertical')
+      return this.posts
+        .slice(1)
+        .filter(post => post.fields.type === 'vertical')
     },
 
     horizontalPosts () {
-      return this.posts.filter(post => post.fields.type === 'horizontal' || !post.fields.type)
+      return this.posts
+        .slice(1)
+        .filter(post => post.fields.type === 'horizontal' || !post.fields.type)
     }
   }
 }
