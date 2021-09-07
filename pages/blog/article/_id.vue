@@ -140,8 +140,16 @@ export default {
       title: this.post.fields.title,
       meta: [
         { name: 'description', content: this.post.fields.description, hid: 'description' },
-        { name: 'author', content: this.post.fields.writer.name },
+        { name: 'author', content: this.post.fields.writer.fields.name },
         { name: 'copyright', content: 'Copyright © ' + new Date().getFullYear() + ' ' + this.post.fields.writer.name },
+        { name: 'og:title', content: this.post.fields.title },
+        { name: 'og:type', content: 'article' },
+        { name: 'og:description', content: this.post.fields.description },
+        { name: 'og:image', content: this.post.fields.image.url },
+        { name: 'og:url', content: this.urlPath },
+        { name: 'twitter:url', content: this.urlPath },
+        { name: 'twitter:description', content: this.post.fields.description },
+        { name: 'twitter:image', content: this.post.fields.image.url },
         { name: 'robots', content: 'index, follow' }
       ]
     }
