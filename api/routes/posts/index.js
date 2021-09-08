@@ -26,7 +26,7 @@ module.exports = function (app) {
       const headers = {
         'APIKey': env.admin.apiKey
       }
-      console.log(req.query)
+
       const { data = [] } = await axios.get(`${env.admin.host}/fetch/pt-br/list/posts?filter=fields.slug[eq]"${req.params.slug}"`, { headers })
       const [ item = {} ] = data.items
 

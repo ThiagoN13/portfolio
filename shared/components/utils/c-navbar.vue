@@ -28,9 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contato</a>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <NuxtLink to="/blog" class="nav-link">Blog</NuxtLink>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
