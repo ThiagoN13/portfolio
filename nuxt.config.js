@@ -57,24 +57,24 @@ export default {
   modules: [
     '@nuxtjs/gtm',
     '@nuxtjs/axios',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     '@nuxtjs/robots'
   ],
 
-  axios: {
-    baseURL: process.env.DOMAIN_URL
-  },
+  // axios: {
+  //   baseURL: process.env.DOMAIN_URL
+  // },
 
-  sitemap: {
-    cacheTime: 1000 * 60 * 60 * 24,
-    gzip: true,
-    hostname: process.env.DOMAIN_URL,
-    routes: async () => {
-      const { data = [] } = await axios.get(`${process.env.DOMAIN_URL}/api/posts`)
+  // sitemap: {
+  //   cacheTime: 1000 * 60 * 60 * 24,
+  //   gzip: true,
+  //   hostname: process.env.DOMAIN_URL,
+  //   routes: async () => {
+  //     const { data = [] } = await axios.get(`${process.env.DOMAIN_URL}/api/posts`)
 
-      return data.map(post => '/blog/article/' + post.fields.slug)
-    }
-  },
+  //     return data.map(post => '/blog/article/' + post.fields.slug)
+  //   }
+  // },
 
   gtm: {
     id: 'GTM-KMB22HR'
