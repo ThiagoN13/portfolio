@@ -15,7 +15,7 @@
             <strong>Thiago Nogueira</strong>.
           </p>
           <p>
-            Estudante em Ciência da Computação com excelentes habilidades em programação.
+            Formado em Ciência da Computação com excelentes habilidades em programação.
             Trabalho como freelancer localmente na minha cidade natal Salvador - Bahia.
           </p>
           <p>
