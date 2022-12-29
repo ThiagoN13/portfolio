@@ -9,7 +9,7 @@
           </strong>
         </h1>
 
-        <p class="lead">Full stack Developer</p>
+        <p class="lead">Software Engineer</p>
         <a href="#about" @click="onClick" class="fa fa-angle-down scroll-nav"></a>
       </div>
     </div>

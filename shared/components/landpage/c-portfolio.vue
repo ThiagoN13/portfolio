@@ -1,6 +1,4 @@
 <template>
-  <!-- Works
-  ==================================================-->
   <div id="portfolio" class="text-center">
     <div class="container">
       <div class="section-title center">
@@ -10,11 +8,11 @@
 
       <section id="works" class="container">
         <div class="portfolio-items">
-          <c-carousel :data="repositorios" v-slot="repo">
-            <div class="portfolio-item apps" @click="openInNewTab(repo.repo.svn_url)">
+          <c-carousel :data="repositorios" v-slot="row">
+            <div class="portfolio-item apps" @click="openInNewTab(row.repo.svn_url)">
               <div class="item-inner">
-                <span>{{ repo.repo.name }}</span>
-                <!-- <img src="/img/github-background.jpg" alt /> -->
+                <span>{{ row.repo.name }}</span>
+
                 <i class="fab fa-github"></i>
                 <div class="layer">
                   <div class="preview view">
@@ -24,10 +22,8 @@
               </div>
             </div>
           </c-carousel>
-          <!--/.portfolio-item-->
         </div>
       </section>
-      <!--/#portfolio-->
     </div>
   </div>
 </template>
@@ -97,11 +93,12 @@ export default {
 }
 
 #portfolio .portfolio-item .item-inner {
+  border-radius: 10px;
   background: #26292e;
   padding: 20px;
   margin: 0 0 10px 0;
   position: relative;
-  height: 150px;
+  height: 165px;
 }
 
 #portfolio .portfolio-item i {
@@ -145,6 +142,7 @@ export default {
 }
 
 #portfolio .portfolio-item:hover .layer {
+  border-radius: 10px;
   opacity: 1;
 }
 
